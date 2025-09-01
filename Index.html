@@ -1,0 +1,151 @@
+<!DOCTYPE html><html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>InfoPet</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+    }
+    header {
+      background-color: #0077c8;
+      color: white;
+      padding: 15px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    header h1 {
+      margin: 0;
+      font-size: 20px;
+    }
+    .menu-icon {
+      font-size: 24px;
+      cursor: pointer;
+    }
+    .profile {
+      background-color: #ffe9c5;
+      margin: 15px;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      padding: 10px;
+    }
+    .profile img {
+      width: 80px;
+      height: 80px;
+      border-radius: 10px;
+      margin-right: 10px;
+    }
+    .profile-info h2 {
+      margin: 0;
+      background-color: #0077c8;
+      color: white;
+      padding: 2px 8px;
+      border-radius: 5px;
+      font-size: 18px;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 15px;
+      padding: 15px;
+    }
+    .card {
+      background-color: #ffe9c5;
+      border-radius: 10px;
+      padding: 20px;
+      text-align: center;
+      font-weight: bold;
+      cursor: pointer;
+      transition: transform 0.2s;
+    }
+    .card:hover {
+      transform: scale(1.05);
+    }
+    .card i {
+      font-size: 28px;
+      display: block;
+      margin-bottom: 8px;
+    }
+    nav {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      display: flex;
+      justify-content: space-around;
+      background-color: white;
+      border-top: 1px solid #ddd;
+      padding: 10px 0;
+    }
+    nav button {
+      background: none;
+      border: none;
+      font-size: 14px;
+      text-align: center;
+      cursor: pointer;
+    }
+    nav button i {
+      display: block;
+      font-size: 20px;
+      margin-bottom: 4px;
+    }
+  </style>
+  <script src="https://kit.fontawesome.com/2c36e9b7b1.js" crossorigin="anonymous"></script>
+</head>
+<body><header>
+  <h1><i class="fas fa-paw"></i> InfoPet</h1>
+  <span class="menu-icon"><i class="fas fa-bars"></i></span>
+</header><div class="profile">
+  <img src="https://placedog.net/200/200?id=1" alt="Perro">
+  <div class="profile-info">
+    <h2>Nombre</h2>
+    <p>Raza<br>3 años<br>Macho</p>
+  </div>
+</div><div class="grid">
+  <div class="card" onclick="showSection('perdidos')">
+    <i class="fas fa-heart"></i> Perdidos
+  </div>
+  <div class="card" onclick="showSection('adopcion')">
+    <i class="fas fa-stethoscope"></i> En adopción
+  </div>
+  <div class="card" onclick="showSection('cuidadores')">
+    <i class="fas fa-user"></i> Cuidadores
+  </div>
+  <div class="card" onclick="showSection('eventos')">
+    <i class="fas fa-list"></i> Eventos
+  </div>
+</div><div id="content" style="padding:15px;"></div><nav>
+  <button onclick="showSection('agenda')"><i class="fas fa-syringe"></i> Agenda</button>
+  <button onclick="showSection('cuidadores')"><i class="fas fa-heart"></i> Cuidadores</button>
+  <button onclick="showSection('eventos')"><i class="fas fa-calendar"></i> Eventos</button>
+</nav><script>
+  function showSection(section) {
+    const content = document.getElementById('content');
+    let html = '';
+    switch(section) {
+      case 'perdidos':
+        html = '<h2>Mascotas Perdidas</h2><p>No hay reportes en este momento.</p>';
+        break;
+      case 'adopcion':
+        html = '<h2>En Adopción</h2><p>Perro 1, Gato 2...</p>';
+        break;
+      case 'cuidadores':
+        html = '<h2>Cuidadores</h2><p>Lista de cuidadores disponibles.</p>';
+        break;
+      case 'eventos':
+        html = '<h2>Eventos</h2><p>No hay eventos programados.</p>';
+        break;
+      case 'agenda':
+        html = '<h2>Agenda</h2><p>Próximas vacunas y controles.</p>';
+        break;
+      default:
+        html = '';
+    }
+    content.innerHTML = html;
+  }
+</script></body>
+  </html>
